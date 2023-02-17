@@ -1,6 +1,6 @@
 package Palindrome_Permutation;
 
-public class Palindrome_Permutation_Test {
+public class Palindrome_Permutation_Practice {
     boolean isPermutationOfPalindrome(String str){
         int countOdd = 0;
         int[] countSameChar = new int[128]; // ASC22
@@ -20,7 +20,7 @@ public class Palindrome_Permutation_Test {
 
     // TEST
     public static void main(String[] args) {
-        Palindrome_Permutation_Test pp = new Palindrome_Permutation_Test();
+        Palindrome_Permutation.Palindrome_Permutation_Practice pp = new Palindrome_Permutation.Palindrome_Permutation_Practice();
         String str1 = "racecar";
         String str2 = "tact coa";
         String str3 = "hello";

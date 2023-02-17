@@ -1,6 +1,6 @@
 package URLify;
 
-public class URLify_1_Test {
+public class URLify_1_Practice {
     void replaceSpaces(char[] str, int trueLength){
         int countSpaces = 0, index, i;
 
@@ -33,7 +33,7 @@ public class URLify_1_Test {
 
     // TEST
     public static void main(String[] args) {
-        URLify_1_Test urlify = new URLify_1_Test();
+        URLify.URLify_1_Practice urlify = new URLify.URLify_1_Practice();
 
         // Test case 1
         char[] str1 = "Mr John Smith    ".toCharArray();
