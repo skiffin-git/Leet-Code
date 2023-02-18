@@ -55,18 +55,17 @@ public class One_Away {
     /* Check if you can insert a character into s1 to make s2.
     *  so s1 has to be shorter then s2 */
     boolean isOneInsertAway(String s1, String s2){
-        int index1 = 0, index2 = 0;
-        // like a for loop but with 2 indexes
-        while (index2 < s2.length() && index1 < s1.length()){
-            if(s1.charAt(index1) != s2.charAt(index2)){
-                if(index1 != index2){
+        boolean stop = false;
+        int indexS2 = 0;
+        for(int i = 0; i < s1.length(); i++){
+            if(s1.charAt(i) != s2.charAt(indexS2)){
+                if(stop){
                     return false;
                 }
-                index2++;
-            }else{
-                index1++;
-                index2++;
+                stop = true;
+                indexS2++;
             }
+            indexS2++;
         }
         return true;
     }
