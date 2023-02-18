@@ -1,4 +1,4 @@
-package Palindrome_Permutation;
+package Arrays_and_Strings._4_Palindrome_Permutation;
 
 public class Palindrome_Permutation_Practice {
     boolean isPermutationOfPalindrome(String str){
@@ -20,7 +20,7 @@ public class Palindrome_Permutation_Practice {
 
     // TEST
     public static void main(String[] args) {
-        Palindrome_Permutation.Palindrome_Permutation_Practice pp = new Palindrome_Permutation.Palindrome_Permutation_Practice();
+        Palindrome_Permutation_Practice pp = new Palindrome_Permutation_Practice();
         String str1 = "racecar";
         String str2 = "tact coa";
         String str3 = "hello";
