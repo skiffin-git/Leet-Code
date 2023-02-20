@@ -1,4 +1,4 @@
-package Permutation;// QUESTION
+package Arrays_and_Strings._2_Permutation;// QUESTION
 // Given two strings, write a method to decide
 // if one is a permutation of the other.
 

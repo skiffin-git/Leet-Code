@@ -1,4 +1,4 @@
-package URLify;
+package Arrays_and_Strings._3_URLify;
 
 // QUESTION
 // Write a method to replace all spaces in a string with '%20'.
@@ -26,7 +26,7 @@ package URLify;
 // we actually edit the string. When we see a space, we replace it with %20.
 // If there is no space, then we copy the original character.
 public class URLify_1 {
-    void replaceSpaces(char[] str, int trueLength){
+    static void replaceSpaces(char[] str, int trueLength){
         int countSpaces = 0, index, i;
 
         // countSpaces

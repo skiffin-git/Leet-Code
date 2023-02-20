@@ -1,4 +1,4 @@
-package Is_Unique;
+package Arrays_and_Strings._1_Is_Unique;
 
 // QUESTION
 // Is Unique: Implement an algorithm to determine
