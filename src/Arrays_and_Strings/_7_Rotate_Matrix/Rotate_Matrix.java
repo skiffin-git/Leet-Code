@@ -35,45 +35,34 @@ public class Rotate_Matrix {
         int rowLength  = matrix.length;
         int columnLength = matrix[0].length;
 
-        // firstSame - first arg and doesn't change in current layer
-        // lastSame - last arg and doesn't change in current layer
+        // first - first arg and doesn't change in current layer
+        // last - last arg and doesn't change in current layer
         // increment - starts with first arg and incrementing
         // decrement - starts with last arg and decrementing
-        for(int firstSame = 0; firstSame < rowLength; firstSame++){
+        for(int first = 0; first < rowLength; first++){
 
             // update lastSame
-            int lastSame = rowLength - 1 - firstSame;
+            int last = rowLength - 1 - first;
             // to step in next layer, start with row
-            for(int increment = firstSame; increment < lastSame; increment++){
+            for(int increment = first; increment < last; increment++){
 
                 // update lastDecrement
                 int lastDecrement = columnLength - 1 - increment;
 
                 // remember left
-                int left = matrix[firstSame][increment];
+                int left = matrix[first][increment];
 
-
-                // left = bottom
-                //matrix[firstSame][increment] = matrix[increment][lastSame];
                 // left = top
-                matrix[firstSame][increment] = matrix[lastDecrement][firstSame];
+                matrix[first][increment] = matrix[lastDecrement][first];
 
-
-                // bottom = right
-                //matrix[increment][lastSame] = matrix[lastSame][lastDecrement];
                 // top = right
-                matrix[lastDecrement][firstSame] = matrix[lastSame][lastDecrement];
+                matrix[lastDecrement][first] = matrix[last][lastDecrement];
 
-                // right = top
-                //matrix[lastSame][lastDecrement] = matrix[lastDecrement][firstSame];
                 // right = bottom
-                matrix[lastSame][lastDecrement] = matrix[increment][lastSame];
+                matrix[last][lastDecrement] = matrix[increment][last];
 
-                // top = left
-                //matrix[lastDecrement][firstSame] = left;
                 // bottom = left
-                matrix[increment][lastSame] = left;
-
+                matrix[increment][last] = left;
             }
         }
         return true;
