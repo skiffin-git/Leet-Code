@@ -11,45 +11,53 @@ package _2_Linked_Lists._1_Remove_Dups;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.*;
 public class Remove_Dups {
-    public static void deleteDups(LinkedList<Integer> node)
-    {
+    void deleteDups(LinkedListNode n){
+        // set will remember elements of n
         HashSet<Integer> set = new HashSet<Integer>();
-        for(int i = 0; i < node.size(); i++)
-        {
-            int elem = (int) node.get(i);
-            //System.out.println(elem);
-            if(!set.contains(elem))
-            {
-                set.add((Integer) node.get(i));
+        LinkedListNode previous = null;
+        // go through linked list
+        while (n != null){
+            // if found repeat
+            if(set.contains(n.data)){
+                // remove dup by assigning current to next
+                previous.next = n.next;
+            } else {
+                // update set
+                set.add(n.data);
+                // remember current as previous
+                previous = n;
             }
-            else
-            {
-                node.remove(i);
-            }
+            // go to next node
+            n = n.next;
         }
     }
-
     // TEST
     public static void main(String[] args) {
-        // create a test linked list with duplicates
-        LinkedList<Integer> list = new LinkedList<Integer>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(2);
-        list.add(4);
-        list.add(1);
-        list.add(5);
+        LinkedListNode head = new LinkedListNode(1);
+        head.next = new LinkedListNode(2);
+        head.next.next = new LinkedListNode(3);
+        head.next.next.next = new LinkedListNode(2);
+        head.next.next.next.next = new LinkedListNode(4);
 
-        System.out.println("Original List: " + list);
+        System.out.println("Before removing duplicates:");
+        printLinkedList(head);
 
-        // remove duplicates
-        deleteDups(list);
+        Remove_Dups remover = new Remove_Dups();
+        remover.deleteDups(head);
 
-        System.out.println("List after removing duplicates: " + list);
+        System.out.println("After removing duplicates:");
+        printLinkedList(head);
+    }
+
+    private static void printLinkedList(LinkedListNode head) {
+        LinkedListNode current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
     }
 
 }
