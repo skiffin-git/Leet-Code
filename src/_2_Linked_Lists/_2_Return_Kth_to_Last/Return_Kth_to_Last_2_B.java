@@ -18,42 +18,38 @@ package _2_Linked_Lists._2_Return_Kth_to_Last;
 // sure that this is not what the interviewer intended.
 //
 // Solution #2: Recursive
-// This algorithm recurses through the linked list. When it hits the end, the method passes back a counter set
+// This algorithm recursive through the linked list. When it hits the end, the method passes back a counter set
 // to 0. Each parent call adds 1 to this counter. When the counter equals k, we know we have reached the kth
 // to last element of the linked list.
 // Implementing this is short and sweet-provided we have a way of"passing back" an integer value through
 // the stack. Unfortunately, we can't pass back a node and a counter using normal return statements. So how
 // do we handle this?
-// Approach A: Don't Return the Element.
-// One way to do this is to change the problem to simply printing the kth to last element. Then, we can pass
-// back the value of the counter simply through return values.
-import java.util.*;
-public class Return_Kth_to_Last {
-    public static int solution2(LinkedList<Integer> list, int k){
-        int index = 0;
-        Iterator<Integer> iter = list.iterator();
-        if (iter.hasNext()) {
-            list.remove(iter.next());
-        }
-        if (list.getFirst() == k) {
-            index = list.getFirst();
-            System.out.println(k + "th to last node is " + list.getFirst());
-        }else{
-            solution2(list, k);
-        }
-        return index;
-    }
+// Approach B: Create a Wrapper Class.
+// We described earlier that the issue was that we couldn't simultaneously return a counter and an index. If
+// we wrap the counter value with simple class (or even a single element array), we can mimic passing by
+// reference.
+import _2_Linked_Lists._1_Remove_Dups.LinkedListNode;
 
-    // TEST
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
+public class Return_Kth_to_Last_2_B {
+   class Index{
+      public int value = 0;
+   }
 
-        int k = 2;
-        solution2(list, k);
-    }
+   LinkedListNode kthToLastElement(LinkedListNode head, int k){
+      Index idx = new Index();
+      return kthToLastElement(head, k, idx);
+   }
+
+   LinkedListNode kthToLastElement(LinkedListNode head, int k , Index idx){
+      if(head == null){
+         return null;
+      }
+      LinkedListNode node = kthToLastElement(head.next, k, idx);
+      idx.value = idx.value + 1;
+      if(idx.value == k){
+         return head;
+      }
+      return node;
+   }
+
 }
