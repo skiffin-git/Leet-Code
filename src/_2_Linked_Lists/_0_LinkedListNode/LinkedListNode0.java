@@ -32,22 +32,5 @@ public class LinkedListNode0 {
 		if (p != null && p.next != this) {
 			p.setNext(this);
 		}
-	}	
-	
-	public String printForward() {
-		if (next != null) {
-			return data + "->" + next.printForward();
-		} else {
-			return ((Integer) data).toString();
-		}
-	}
-	
-	public LinkedListNode0 clone() {
-		LinkedListNode0 next2 = null;
-		if (next != null) {
-			next2 = next.clone();
-		}
-		LinkedListNode0 head2 = new LinkedListNode0(data, next2, null);
-		return head2;
 	}
 }
