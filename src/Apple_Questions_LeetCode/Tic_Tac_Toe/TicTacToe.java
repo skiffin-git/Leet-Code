@@ -1,4 +1,4 @@
-package Apple_Questions_LeetCode._1_Tic_Tac_Toe;
+package Apple_Questions_LeetCode.Tic_Tac_Toe;
 
 class TicTacToe {
     char[][] board;
